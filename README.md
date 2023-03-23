@@ -1,4 +1,4 @@
-# weather_app
+# weather App
 
 Weather Forecast Flutter.
 
