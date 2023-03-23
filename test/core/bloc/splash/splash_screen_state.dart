@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:weather_app/core/bloc/splash/splash_screen_cubit.dart';
-import 'package:weather_app/core/data/prefs/shared_prefs_helper.dart';
+import 'package:weather_app/modules/core/bloc/splash/splash_screen_cubit.dart';
+import 'package:weather_app/modules/core/data/prefs/shared_prefs_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bloc_test/bloc_test.dart';
 
