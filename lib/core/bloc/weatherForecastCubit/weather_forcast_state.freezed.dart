@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'weather_forcast_state.dart';
 
@@ -20,23 +20,23 @@ mixin _$WeatherForecastState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) error,
-    required TResult Function(WeatherForecastModel WeatherForecast) success,
+    required TResult Function(WeatherForecastModel weatherForecast) success,
     required TResult Function() loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
-    TResult Function()? loading,
+    TResult? Function()? init,
+    TResult? Function(String message)? error,
+    TResult? Function(WeatherForecastModel weatherForecast)? success,
+    TResult? Function()? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
+    TResult Function(WeatherForecastModel weatherForecast)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) =>
@@ -51,10 +51,10 @@ mixin _$WeatherForecastState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WeatherForecastInitState value)? init,
-    TResult Function(WeatherForecastErrorState value)? error,
-    TResult Function(WeatherForecastSuccessState value)? success,
-    TResult Function(WeatherForecastLoadingState value)? loading,
+    TResult? Function(WeatherForecastInitState value)? init,
+    TResult? Function(WeatherForecastErrorState value)? error,
+    TResult? Function(WeatherForecastSuccessState value)? success,
+    TResult? Function(WeatherForecastLoadingState value)? loading,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,17 +72,19 @@ mixin _$WeatherForecastState {
 abstract class $WeatherForecastStateCopyWith<$Res> {
   factory $WeatherForecastStateCopyWith(WeatherForecastState value,
           $Res Function(WeatherForecastState) then) =
-      _$WeatherForecastStateCopyWithImpl<$Res>;
+      _$WeatherForecastStateCopyWithImpl<$Res, WeatherForecastState>;
 }
 
 /// @nodoc
-class _$WeatherForecastStateCopyWithImpl<$Res>
+class _$WeatherForecastStateCopyWithImpl<$Res,
+        $Val extends WeatherForecastState>
     implements $WeatherForecastStateCopyWith<$Res> {
   _$WeatherForecastStateCopyWithImpl(this._value, this._then);
 
-  final WeatherForecastState _value;
   // ignore: unused_field
-  final $Res Function(WeatherForecastState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
@@ -94,15 +96,11 @@ abstract class _$$WeatherForecastInitStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$WeatherForecastInitStateCopyWithImpl<$Res>
-    extends _$WeatherForecastStateCopyWithImpl<$Res>
+    extends _$WeatherForecastStateCopyWithImpl<$Res, _$WeatherForecastInitState>
     implements _$$WeatherForecastInitStateCopyWith<$Res> {
   __$$WeatherForecastInitStateCopyWithImpl(_$WeatherForecastInitState _value,
       $Res Function(_$WeatherForecastInitState) _then)
-      : super(_value, (v) => _then(v as _$WeatherForecastInitState));
-
-  @override
-  _$WeatherForecastInitState get _value =>
-      super._value as _$WeatherForecastInitState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -130,7 +128,7 @@ class _$WeatherForecastInitState implements WeatherForecastInitState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) error,
-    required TResult Function(WeatherForecastModel WeatherForecast) success,
+    required TResult Function(WeatherForecastModel weatherForecast) success,
     required TResult Function() loading,
   }) {
     return init();
@@ -139,10 +137,10 @@ class _$WeatherForecastInitState implements WeatherForecastInitState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
-    TResult Function()? loading,
+    TResult? Function()? init,
+    TResult? Function(String message)? error,
+    TResult? Function(WeatherForecastModel weatherForecast)? success,
+    TResult? Function()? loading,
   }) {
     return init?.call();
   }
@@ -152,7 +150,7 @@ class _$WeatherForecastInitState implements WeatherForecastInitState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
+    TResult Function(WeatherForecastModel weatherForecast)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -176,10 +174,10 @@ class _$WeatherForecastInitState implements WeatherForecastInitState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WeatherForecastInitState value)? init,
-    TResult Function(WeatherForecastErrorState value)? error,
-    TResult Function(WeatherForecastSuccessState value)? success,
-    TResult Function(WeatherForecastLoadingState value)? loading,
+    TResult? Function(WeatherForecastInitState value)? init,
+    TResult? Function(WeatherForecastErrorState value)? error,
+    TResult? Function(WeatherForecastSuccessState value)? success,
+    TResult? Function(WeatherForecastLoadingState value)? loading,
   }) {
     return init?.call(this);
   }
@@ -210,27 +208,26 @@ abstract class _$$WeatherForecastErrorStateCopyWith<$Res> {
           _$WeatherForecastErrorState value,
           $Res Function(_$WeatherForecastErrorState) then) =
       __$$WeatherForecastErrorStateCopyWithImpl<$Res>;
+  @useResult
   $Res call({String message});
 }
 
 /// @nodoc
 class __$$WeatherForecastErrorStateCopyWithImpl<$Res>
-    extends _$WeatherForecastStateCopyWithImpl<$Res>
+    extends _$WeatherForecastStateCopyWithImpl<$Res,
+        _$WeatherForecastErrorState>
     implements _$$WeatherForecastErrorStateCopyWith<$Res> {
   __$$WeatherForecastErrorStateCopyWithImpl(_$WeatherForecastErrorState _value,
       $Res Function(_$WeatherForecastErrorState) _then)
-      : super(_value, (v) => _then(v as _$WeatherForecastErrorState));
+      : super(_value, _then);
 
-  @override
-  _$WeatherForecastErrorState get _value =>
-      super._value as _$WeatherForecastErrorState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = freezed,
+    Object? message = null,
   }) {
     return _then(_$WeatherForecastErrorState(
-      message == freezed
+      null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
@@ -256,15 +253,15 @@ class _$WeatherForecastErrorState implements WeatherForecastErrorState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WeatherForecastErrorState &&
-            const DeepCollectionEquality().equals(other.message, message));
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, message);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$WeatherForecastErrorStateCopyWith<_$WeatherForecastErrorState>
       get copyWith => __$$WeatherForecastErrorStateCopyWithImpl<
           _$WeatherForecastErrorState>(this, _$identity);
@@ -274,7 +271,7 @@ class _$WeatherForecastErrorState implements WeatherForecastErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) error,
-    required TResult Function(WeatherForecastModel WeatherForecast) success,
+    required TResult Function(WeatherForecastModel weatherForecast) success,
     required TResult Function() loading,
   }) {
     return error(message);
@@ -283,10 +280,10 @@ class _$WeatherForecastErrorState implements WeatherForecastErrorState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
-    TResult Function()? loading,
+    TResult? Function()? init,
+    TResult? Function(String message)? error,
+    TResult? Function(WeatherForecastModel weatherForecast)? success,
+    TResult? Function()? loading,
   }) {
     return error?.call(message);
   }
@@ -296,7 +293,7 @@ class _$WeatherForecastErrorState implements WeatherForecastErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
+    TResult Function(WeatherForecastModel weatherForecast)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -320,10 +317,10 @@ class _$WeatherForecastErrorState implements WeatherForecastErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WeatherForecastInitState value)? init,
-    TResult Function(WeatherForecastErrorState value)? error,
-    TResult Function(WeatherForecastSuccessState value)? success,
-    TResult Function(WeatherForecastLoadingState value)? loading,
+    TResult? Function(WeatherForecastInitState value)? init,
+    TResult? Function(WeatherForecastErrorState value)? error,
+    TResult? Function(WeatherForecastSuccessState value)? success,
+    TResult? Function(WeatherForecastLoadingState value)? loading,
   }) {
     return error?.call(this);
   }
@@ -348,7 +345,7 @@ abstract class WeatherForecastErrorState implements WeatherForecastState {
   const factory WeatherForecastErrorState(final String message) =
       _$WeatherForecastErrorState;
 
-  String get message => throw _privateConstructorUsedError;
+  String get message;
   @JsonKey(ignore: true)
   _$$WeatherForecastErrorStateCopyWith<_$WeatherForecastErrorState>
       get copyWith => throw _privateConstructorUsedError;
@@ -360,30 +357,29 @@ abstract class _$$WeatherForecastSuccessStateCopyWith<$Res> {
           _$WeatherForecastSuccessState value,
           $Res Function(_$WeatherForecastSuccessState) then) =
       __$$WeatherForecastSuccessStateCopyWithImpl<$Res>;
-  $Res call({WeatherForecastModel WeatherForecast});
+  @useResult
+  $Res call({WeatherForecastModel weatherForecast});
 }
 
 /// @nodoc
 class __$$WeatherForecastSuccessStateCopyWithImpl<$Res>
-    extends _$WeatherForecastStateCopyWithImpl<$Res>
+    extends _$WeatherForecastStateCopyWithImpl<$Res,
+        _$WeatherForecastSuccessState>
     implements _$$WeatherForecastSuccessStateCopyWith<$Res> {
   __$$WeatherForecastSuccessStateCopyWithImpl(
       _$WeatherForecastSuccessState _value,
       $Res Function(_$WeatherForecastSuccessState) _then)
-      : super(_value, (v) => _then(v as _$WeatherForecastSuccessState));
+      : super(_value, _then);
 
-  @override
-  _$WeatherForecastSuccessState get _value =>
-      super._value as _$WeatherForecastSuccessState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? WeatherForecast = freezed,
+    Object? weatherForecast = null,
   }) {
     return _then(_$WeatherForecastSuccessState(
-      WeatherForecast == freezed
-          ? _value.WeatherForecast
-          : WeatherForecast // ignore: cast_nullable_to_non_nullable
+      null == weatherForecast
+          ? _value.weatherForecast
+          : weatherForecast // ignore: cast_nullable_to_non_nullable
               as WeatherForecastModel,
     ));
   }
@@ -392,14 +388,14 @@ class __$$WeatherForecastSuccessStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$WeatherForecastSuccessState implements WeatherForecastSuccessState {
-  const _$WeatherForecastSuccessState(this.WeatherForecast);
+  const _$WeatherForecastSuccessState(this.weatherForecast);
 
   @override
-  final WeatherForecastModel WeatherForecast;
+  final WeatherForecastModel weatherForecast;
 
   @override
   String toString() {
-    return 'WeatherForecastState.success(WeatherForecast: $WeatherForecast)';
+    return 'WeatherForecastState.success(weatherForecast: $weatherForecast)';
   }
 
   @override
@@ -407,16 +403,16 @@ class _$WeatherForecastSuccessState implements WeatherForecastSuccessState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WeatherForecastSuccessState &&
-            const DeepCollectionEquality()
-                .equals(other.WeatherForecast, WeatherForecast));
+            (identical(other.weatherForecast, weatherForecast) ||
+                other.weatherForecast == weatherForecast));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(WeatherForecast));
+  int get hashCode => Object.hash(runtimeType, weatherForecast);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$WeatherForecastSuccessStateCopyWith<_$WeatherForecastSuccessState>
       get copyWith => __$$WeatherForecastSuccessStateCopyWithImpl<
           _$WeatherForecastSuccessState>(this, _$identity);
@@ -426,21 +422,21 @@ class _$WeatherForecastSuccessState implements WeatherForecastSuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) error,
-    required TResult Function(WeatherForecastModel WeatherForecast) success,
+    required TResult Function(WeatherForecastModel weatherForecast) success,
     required TResult Function() loading,
   }) {
-    return success(WeatherForecast);
+    return success(weatherForecast);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
-    TResult Function()? loading,
+    TResult? Function()? init,
+    TResult? Function(String message)? error,
+    TResult? Function(WeatherForecastModel weatherForecast)? success,
+    TResult? Function()? loading,
   }) {
-    return success?.call(WeatherForecast);
+    return success?.call(weatherForecast);
   }
 
   @override
@@ -448,12 +444,12 @@ class _$WeatherForecastSuccessState implements WeatherForecastSuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
+    TResult Function(WeatherForecastModel weatherForecast)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(WeatherForecast);
+      return success(weatherForecast);
     }
     return orElse();
   }
@@ -472,10 +468,10 @@ class _$WeatherForecastSuccessState implements WeatherForecastSuccessState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WeatherForecastInitState value)? init,
-    TResult Function(WeatherForecastErrorState value)? error,
-    TResult Function(WeatherForecastSuccessState value)? success,
-    TResult Function(WeatherForecastLoadingState value)? loading,
+    TResult? Function(WeatherForecastInitState value)? init,
+    TResult? Function(WeatherForecastErrorState value)? error,
+    TResult? Function(WeatherForecastSuccessState value)? success,
+    TResult? Function(WeatherForecastLoadingState value)? loading,
   }) {
     return success?.call(this);
   }
@@ -498,11 +494,10 @@ class _$WeatherForecastSuccessState implements WeatherForecastSuccessState {
 
 abstract class WeatherForecastSuccessState implements WeatherForecastState {
   const factory WeatherForecastSuccessState(
-          final WeatherForecastModel WeatherForecast) =
+          final WeatherForecastModel weatherForecast) =
       _$WeatherForecastSuccessState;
 
-  WeatherForecastModel get WeatherForecast =>
-      throw _privateConstructorUsedError;
+  WeatherForecastModel get weatherForecast;
   @JsonKey(ignore: true)
   _$$WeatherForecastSuccessStateCopyWith<_$WeatherForecastSuccessState>
       get copyWith => throw _privateConstructorUsedError;
@@ -518,16 +513,13 @@ abstract class _$$WeatherForecastLoadingStateCopyWith<$Res> {
 
 /// @nodoc
 class __$$WeatherForecastLoadingStateCopyWithImpl<$Res>
-    extends _$WeatherForecastStateCopyWithImpl<$Res>
+    extends _$WeatherForecastStateCopyWithImpl<$Res,
+        _$WeatherForecastLoadingState>
     implements _$$WeatherForecastLoadingStateCopyWith<$Res> {
   __$$WeatherForecastLoadingStateCopyWithImpl(
       _$WeatherForecastLoadingState _value,
       $Res Function(_$WeatherForecastLoadingState) _then)
-      : super(_value, (v) => _then(v as _$WeatherForecastLoadingState));
-
-  @override
-  _$WeatherForecastLoadingState get _value =>
-      super._value as _$WeatherForecastLoadingState;
+      : super(_value, _then);
 }
 
 /// @nodoc
@@ -555,7 +547,7 @@ class _$WeatherForecastLoadingState implements WeatherForecastLoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String message) error,
-    required TResult Function(WeatherForecastModel WeatherForecast) success,
+    required TResult Function(WeatherForecastModel weatherForecast) success,
     required TResult Function() loading,
   }) {
     return loading();
@@ -564,10 +556,10 @@ class _$WeatherForecastLoadingState implements WeatherForecastLoadingState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
-    TResult Function()? loading,
+    TResult? Function()? init,
+    TResult? Function(String message)? error,
+    TResult? Function(WeatherForecastModel weatherForecast)? success,
+    TResult? Function()? loading,
   }) {
     return loading?.call();
   }
@@ -577,7 +569,7 @@ class _$WeatherForecastLoadingState implements WeatherForecastLoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String message)? error,
-    TResult Function(WeatherForecastModel WeatherForecast)? success,
+    TResult Function(WeatherForecastModel weatherForecast)? success,
     TResult Function()? loading,
     required TResult orElse(),
   }) {
@@ -601,10 +593,10 @@ class _$WeatherForecastLoadingState implements WeatherForecastLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(WeatherForecastInitState value)? init,
-    TResult Function(WeatherForecastErrorState value)? error,
-    TResult Function(WeatherForecastSuccessState value)? success,
-    TResult Function(WeatherForecastLoadingState value)? loading,
+    TResult? Function(WeatherForecastInitState value)? init,
+    TResult? Function(WeatherForecastErrorState value)? error,
+    TResult? Function(WeatherForecastSuccessState value)? success,
+    TResult? Function(WeatherForecastLoadingState value)? loading,
   }) {
     return loading?.call(this);
   }

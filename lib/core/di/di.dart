@@ -21,6 +21,7 @@ Future<void> initializeInitiator() async {
   inject.registerLazySingleton(() => preferences);
   inject.registerSingleton<SharedHelper>(
       SharedHelperImpl(sharedPreferences: inject()));
+   SharedHelperImpl(sharedPreferences: inject());
 
   inject.registerLazySingleton(() => inject<DioClient>().dio);
   inject.registerLazySingleton<ApiProvider>(() => ApiProvider(dio: inject()));
@@ -30,7 +31,7 @@ Future<void> initializeInitiator() async {
   inject.registerLazySingleton<WeatherRepository>(
       () => WeatherRepository(inject()));
   inject.registerLazySingleton<CurrentWeatherRepository>(
-      () => CurrentWeatherRepository(inject()));
+      () => CurrentWeatherRepositoryIml(inject()));
  
   inject.registerFactory<CurrentWeatherCubit>(
       () => CurrentWeatherCubit(currentWeatherRepository: inject())); 
