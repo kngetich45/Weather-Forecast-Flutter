@@ -11,6 +11,7 @@ class ApiProvider {
   Future<dynamic> post(Map payload, String url) async {
     try {
       final response = await dio.post(url, data: jsonEncode(payload));
+
       return response.data;
     } on DioError catch (e) {
       // print("DIO ERROR ${e.message}");
@@ -21,6 +22,7 @@ class ApiProvider {
   Future<dynamic> delete(Map payload, String url) async {
     try {
       final response = await dio.delete(url, data: jsonEncode(payload));
+
       return response.data;
     } on DioError catch (e) {
       throw e.message;
@@ -30,6 +32,7 @@ class ApiProvider {
   Future<dynamic> put(Map payload, String url) async {
     try {
       final response = await dio.put(url, data: jsonEncode(payload));
+
       return response.data;
     } on DioError catch (e) {
       throw e.message;
@@ -37,10 +40,11 @@ class ApiProvider {
   }
 
   Future<dynamic> get(String url,
-      {Map<String, dynamic>? queryParameters}) async {
+      {Map<String, dynamic>? queryParameters,}) async {
     try {
       final response =
           await inject.get<Dio>().get(url, queryParameters: queryParameters);
+          
       return response.data;
     } on DioError catch (e) {
       throw e.message;
@@ -50,6 +54,7 @@ class ApiProvider {
   Future<dynamic> patch(Map payload, String url) async {
     try {
       final response = await dio.patch(url, data: jsonEncode(payload));
+
       return response.data;
     } on DioError catch (e) {
       throw e.message;

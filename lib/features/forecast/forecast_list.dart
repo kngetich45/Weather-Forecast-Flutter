@@ -7,14 +7,14 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:geolocator/geolocator.dart'; 
 
 import '../../components/custom_list_tile.dart';
-import '../../core/bloc/currentWeatherCubit/data/current_location_params.dart';
-import '../../core/bloc/currentWeatherCubit/data/current_weather_condition_response_model.dart';
-import '../../core/bloc/weatherForecastCubit/data/weather_forecast_response_model.dart';
-import '../../core/bloc/weatherForecastCubit/weather_forcast_state.dart';
+import '../../core/bloc/currentWeatherCubit/data/weather_params.dart';
+import '../../core/bloc/currentWeatherCubit/data/weather_info_model.dart';
+import '../../core/bloc/weatherForecastCubit/data/weather_forecast_model.dart';
+import '../../core/bloc/weatherForecastCubit/weather_forecast_state.dart';
 import '../../core/bloc/weatherForecastCubit/weather_forecast_cubit.dart';
 import '../../core/di/di.dart';
 import '../../shared/services/day_convertion.dart';
-import '../../shared/widgets/toast.dart';
+import '../../shared/widgets/toast_type.dart';
 
 class ForecastList extends StatefulWidget {
   final Position position;
@@ -29,14 +29,17 @@ class ForecastList extends StatefulWidget {
 
 class _ForecastListState extends State<ForecastList> {
   List<ListElement> forecastData = [];
+  
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
+  Widget build(BuildContext context) { 
+    var dataMain = widget.weatherInfo.main!;
+
+    return BlocProvider( 
       create: (context) => inject<WeatherForecastCubit>()
         ..getStatements(
           WeatherParams(
               longitude: widget.position.longitude,
-              latitude: widget.position.latitude),
+              latitude: widget.position.latitude,),
         ),
       child: BlocConsumer<WeatherForecastCubit, WeatherForecastState>(
           listener: (ctx, state) {
@@ -47,11 +50,13 @@ class _ForecastListState extends State<ForecastList> {
             Set<int> existingDicts = {};
             List<ListElement> filteredList = [];
             for (var element in el) {
+              var dataDate = DateTime.parse(element.dtTxt.toString());
               if (existingDicts
-                  .contains(DateTime.parse(element.dtTxt.toString()).weekday)) {
+                  // ignore: no-empty-block
+                  .contains(dataDate.weekday)) {
               } else {
                 existingDicts
-                    .add(DateTime.parse(element.dtTxt.toString()).weekday);
+                    .add(dataDate.weekday);
                 filteredList.add(element);
               }
             }
@@ -63,6 +68,7 @@ class _ForecastListState extends State<ForecastList> {
           error: (message) {
             ToastUtils.showErrorToast(message);
           },
+          // ignore: no-empty-block
           orElse: () {},
         );
       }, builder: (ctx, state) {
@@ -76,21 +82,21 @@ class _ForecastListState extends State<ForecastList> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CustomListTile(
-                    leading: "${widget.weatherInfo.main!.tempMin}°\nmin",
-                    title: "${widget.weatherInfo.main!.temp}°\ncurent",
-                    trailing: "${widget.weatherInfo.main!.tempMax}°\nmax",
+                    leading: "${dataMain.tempMin}°\nmin",
+                    title: "${dataMain.temp}°\ncurent",
+                    trailing: "${dataMain.tempMax}°\nmax",
                   ),
                   Expanded(
                     child: ListView.builder(
                         itemCount: forecastData.length,
                         itemBuilder: (BuildContext context, int index) {
                           return _ForecastListItem(
-                              forecast: forecastData[index]);
-                        }),
+                              forecast: forecastData[index],);
+                        },),
                   ),
                 ],
               );
-      }),
+      },),
     );
   }
 }
@@ -128,7 +134,7 @@ class _ForecastListItem extends StatelessWidget {
           height: 65.0.h,
           padding: EdgeInsets.symmetric(horizontal: 12.0.spMin, vertical: 8.0.spMin),
           child: CustomListTile(
-            leading: Convertion.convertWeekDayToDay(day),
+            leading: DayConvertion.convertWeekDayToDay(day),
             trailing: "${forecast!.main!.temp}°",
           ),
         ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'color.dart'; 
+import 'palette.dart'; 
 
 TextTheme textTheme() {
   return const TextTheme(

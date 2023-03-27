@@ -19,7 +19,7 @@ class WeatherForecastModel {
         message: json["message"],
         cnt: json["cnt"],
         list: List<ListElement>.from(
-            json["list"].map((x) => ListElement.fromJson(x))),
+            json["list"].map((x) => ListElement.fromJson(x)),),
         city: City.fromJson(json["city"]),
       );
 
@@ -283,7 +283,7 @@ enum MainEnum { CLOUDS, RAIN, CLEAR }
 final mainEnumValues = EnumValues({
   "Clear": MainEnum.CLEAR,
   "Clouds": MainEnum.CLOUDS,
-  "Rain": MainEnum.RAIN
+  "Rain": MainEnum.RAIN,
 });
 
 class Wind {
@@ -318,6 +318,7 @@ class EnumValues<T> {
 
   Map<T, String> get reverse {
     reverseMap ??= map.map((k, v) => MapEntry(v, k));
+    
     return reverseMap!;
   }
 }

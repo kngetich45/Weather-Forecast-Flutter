@@ -6,27 +6,27 @@ import 'package:weather_app/core/bloc/curentLocationCubit/current_location_cubit
 import 'package:weather_app/core/bloc/curentLocationCubit/current_location_state.dart';
 import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_cubit.dart';
 import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_state.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/current_location_params.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/current_weather_condition_response_model.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_params.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_info_model.dart';
 import 'package:weather_app/core/di/di.dart';
-import 'package:weather_app/features/forecast/forecast.dart';
-import 'package:weather_app/features/weather/weather.dart';
-import 'package:weather_app/shared/widgets/toast.dart';
+import 'package:weather_app/features/forecast/forecast_list.dart';
+import 'package:weather_app/features/weather/weather_info.dart';
+import 'package:weather_app/shared/widgets/toast_type.dart';
 
 import '../../shared/utils/assets.dart';  
 
-class MyHomePage extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   static const routeName = 'MyHomePage';
 
-  const MyHomePage({
+  const HomeScreen({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   Position? _position;
   WeatherInfoModel? _weatherInfo;
 
@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         state.maybeWhen(
           success: (position) {
             ToastUtils.showSuccessToast(
-                "Location pinged successfully. Rendering ${position.heading}");
+                "Location pinged successfully. Rendering ${position.heading}",);
             setState(() {
               _position = position;
             });
@@ -47,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           error: (message) {
             ToastUtils.showErrorToast(message);
           },
+          // ignore: no-empty-block
           orElse: () {},
         );
       }, builder: (ctx, state) {
@@ -56,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   image: DecorationImage(
                 image: AssetImage(Assets.backGround),
                 fit: BoxFit.cover,
-              )),
+              ),),
               child: _position == null
                   ? const SpinKitCircle(
                       color: Colors.white,
@@ -70,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 ..getStatements(
                                   WeatherParams(
                                       longitude: _position!.longitude,
-                                      latitude: _position!.latitude),
+                                      latitude: _position!.latitude,),
                                 ),
                               child: BlocConsumer<CurrentWeatherCubit,
                                   CurrentWeatherState>(
@@ -85,10 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                     error: (message) {
                                       ToastUtils.showErrorToast(message);
                                     },
+                                    // ignore: no-empty-block
                                     orElse: () {},
                                   );
                                 },
                                 builder: (ctx, state) {
+                                  // ignore: avoid-nested-conditional-expressions
                                   return _weatherInfo == null
                                       ? const SpinKitCircle(
                                           color: Colors.white,
@@ -101,18 +104,19 @@ class _MyHomePageState extends State<MyHomePage> {
                                 },
                               ),
                             ),
-                            aspectRatio: 750.0 / 805.0),
+                            aspectRatio: 750.0 / 805.0,),
                         Expanded(
+                            // ignore: avoid-nested-conditional-expressions
                             child: _weatherInfo == null
                                 ? const SizedBox.shrink()
                                 : ForecastList(
                                     _position!,
                                     weatherInfo: _weatherInfo!,
-                                  )),
+                                  ),),
                       ],
-                    )),
+                    ),),
         );
-      }),
+      },),
     );
   }
 }

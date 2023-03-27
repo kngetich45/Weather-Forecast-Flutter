@@ -2,7 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:weather_app/core/di/di.dart';
 
 const String languageKey = 'lang_support_key';
-const String firstTimeKey = 'first_time_key';
+//const String firstTimeKey = 'first_time_key';
 
 abstract class SharedHelper {
   Future<SharedPreferences> getInstance();
@@ -22,6 +22,7 @@ class SharedHelperImpl extends SharedHelper {
   @override
   Future<SharedPreferences> getInstance() async {
     await inject.allReady();
+    
     return inject.get<SharedPreferences>();
   }
 

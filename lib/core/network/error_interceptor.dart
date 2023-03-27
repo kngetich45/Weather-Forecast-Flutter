@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fimber/fimber.dart';
 
-import 'package:weather_app/core/data/error_response_model.dart';
+import 'package:weather_app/core/data/errors_model.dart';
 
 class ErrorInterceptor extends Interceptor {
   final Dio dio;
@@ -27,13 +27,7 @@ class ErrorInterceptor extends Interceptor {
             'An error occurred while attempting to connect to our servers';
         break;
       case DioErrorType.other:
-        if (err.error is SocketException) {
-          err.error =
-              'Server is not reachable. Please verify your internet connection and try again';
-        } else {
-          err.error =
-              'Looks like something went wrong while processing your request';
-        }
+        err.error = err.error is SocketException ? 'Server is not reachable. Please verify your internet connection and try again' : 'Looks like something went wrong while processing your request';
         break;
       case DioErrorType.response:
         if (err.response?.data != null) {
@@ -45,12 +39,7 @@ class ErrorInterceptor extends Interceptor {
               // errors object is available
               ErrorsModel errorObj = ErrorsModel.fromJson(err.response?.data);
 
-              if (errorObj.errors != null) {
-                err.error = '${errorObj.errors!.first.message}'.tr();
-              } else {
-                //top level message key
-                err.error = err.response?.data['message'];
-              }
+              err.error = errorObj.errors != null ? '${errorObj.errors!.first.message}'.tr() : err.response?.data['message'];
             } catch (e) {
               Fimber.e('Errorrrr : $e');
             }
@@ -81,6 +70,7 @@ class ErrorInterceptor extends Interceptor {
         err.error =
             'Looks like something went wrong while processing your request! Kindly try again';
     }
+    
     return super.onError(err, handler);
   }
 

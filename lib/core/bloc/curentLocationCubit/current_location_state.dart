@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 part 'current_location_state.freezed.dart';
 
 @freezed
-class CurrentLocationState with _$CurrentLocationState {
+  class CurrentLocationState with _$CurrentLocationState {
   const factory CurrentLocationState.init() = CurrentLocationInitState;
   const factory CurrentLocationState.error(String message) =
       CurrentLocationErrorState;

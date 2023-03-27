@@ -1,4 +1,4 @@
-part of 'langauge_cubit.dart';
+part of 'language_cubit.dart';
 
 @immutable
 abstract class LanguageState extends Equatable {

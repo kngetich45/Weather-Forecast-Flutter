@@ -1,6 +1,8 @@
-import 'package:dartz/dartz.dart';
-import '../../core/data/error_response_model.dart'; 
+/* import 'package:dartz/dartz.dart';
+import '../../core/data/errors_model.dart'; 
 
-abstract class UseCase<Type, Params> {
+abstract class ControllerUsecaseService<Type, Params> {
   Future<Either<ErrorsModel, Type>> call(Params params);
 }
+ 
+ */

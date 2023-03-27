@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/current_weather_condition_response_model.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_info_model.dart';
 import 'package:weather_app/shared/services/find_place_infor.dart';
 import 'package:weather_app/shared/utils/assets.dart';
-import 'package:weather_app/shared/utils/color.dart';
+import 'package:weather_app/shared/utils/palette.dart';
 
 class WeatherInfo extends StatefulWidget {
   final Position position;
@@ -30,27 +30,28 @@ class _WeatherInfoState extends State<WeatherInfo> {
   @override
   Widget build(BuildContext context) {
     getPlaceInfo();
-    if (widget.weatherInfo.weather![0].main!.contains("Clouds")) {
+    var info = widget.weatherInfo.weather![0].main!;
+    if (info.contains("Clouds")) {
       setState(() {
         assetPath = Assets.cloudy;
       });
-    } else if (widget.weatherInfo.weather![0].main!.contains("sun")) {
+    } else if (info.contains("sun")) {
       setState(() {
         assetPath = Assets.sunny2;
       });
-    } else if (widget.weatherInfo.weather![0].main!.contains("Rain")) {
+    } else if (info.contains("Rain")) {
       setState(() {
         assetPath = Assets.rainy;
       });
-    } else if (widget.weatherInfo.weather![0].main!.contains("clear")) {
+    } else if (info.contains("clear")) {
       setState(() {
         assetPath = Assets.cloudy;
       });
-    } else if (widget.weatherInfo.weather![0].main!.contains("windy")) {
+    } else if (info.contains("windy")) {
       setState(() {
         assetPath = Assets.cloudy;
       });
-    } else if (widget.weatherInfo.weather![0].main!.contains("storm")) {
+    } else if (info.contains("storm")) {
       setState(() {
         assetPath = Assets.stomy;
       });
@@ -65,7 +66,7 @@ class _WeatherInfoState extends State<WeatherInfo> {
               style: TextStyle(
                   fontSize: 32.0.sp,
                   color: Palette.white,
-                  fontFamily: "Roboto")),
+                  fontFamily: "Roboto",),),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -73,7 +74,7 @@ class _WeatherInfoState extends State<WeatherInfo> {
                   style: TextStyle(
                       fontSize: 42.0.sp,
                       color: Palette.white,
-                      fontFamily: "Roboto")),
+                      fontFamily: "Roboto",),),
               Padding(
                 padding: const EdgeInsets.only(right: 28.0),
                 child: Container(
@@ -81,7 +82,7 @@ class _WeatherInfoState extends State<WeatherInfo> {
                     assetPath,
                     color: Colors.white,
                     height: 86.0.h,
-                    width: 86.0.h,
+                    width: 86.0,
                     fit: BoxFit.cover,
                   ),
                   margin: EdgeInsets.only(right: 8.0.spMin),
@@ -90,7 +91,7 @@ class _WeatherInfoState extends State<WeatherInfo> {
             ],
           ),
           Text(
-            widget.weatherInfo.weather![0].main!,
+            info,
             style: TextStyle(fontSize: 35.0.sp, color: Palette.white),
           ),
         ],

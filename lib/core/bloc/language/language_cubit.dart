@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:weather_app/core/data/prefs/shared_prefs_helper.dart';
+import 'package:weather_app/core/data/prefs/shared_helper.dart';
 import 'package:weather_app/core/di/di.dart';
 
 part 'language_state.dart';

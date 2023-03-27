@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:weather_app/core/network/endpoints.dart';
 
-import 'package:weather_app/core/network/interceptors.dart';
+import 'package:weather_app/core/network/error_interceptor.dart';
 
 class DioClient {
   DioClient();

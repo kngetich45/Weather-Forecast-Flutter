@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 
 class TextWithExponent extends StatelessWidget {
   final String text;
@@ -7,7 +7,7 @@ class TextWithExponent extends StatelessWidget {
   final double exponentTextSize;
 
   const TextWithExponent(this.text, this.exponentText,
-      {Key? key, this.textSize = 25.0, this.exponentTextSize = 18.0})
+      {Key? key, this.textSize = 25.0, this.exponentTextSize = 18.0,})
       : super(key: key);
 
   @override
@@ -21,10 +21,11 @@ class TextWithExponent extends StatelessWidget {
         Container(
           child: Text(exponentText,
               style:
-                  TextStyle(fontSize: exponentTextSize, color: Colors.white)),
+                  TextStyle(fontSize: exponentTextSize, color: Colors.white),),
           margin: EdgeInsets.only(bottom: (textSize - exponentTextSize)),
         ),
       ],
     );
   }
 }
+ */

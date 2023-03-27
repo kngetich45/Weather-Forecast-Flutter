@@ -5,9 +5,9 @@
 class ErrorsModel {
   ErrorsModel(
     String s, {
-    dynamic message,
-    dynamic detail,
-    dynamic data,
+    message,
+      detail,
+      data,
     List<Errors>? errors,
   }) {
     _message = message;
@@ -16,7 +16,7 @@ class ErrorsModel {
     _errors = errors;
   }
 
-  ErrorsModel.fromJson(dynamic json) {
+  ErrorsModel.fromJson(json) {
     _message = json['message'];
     _detail = json['detail'];
     _data = json['data'];
@@ -36,7 +36,7 @@ class ErrorsModel {
   String? get message => _message;
   String? get detail => _detail;
 
-  dynamic get data => _data;
+    get data => _data;
 
   List<Errors>? get errors => _errors;
 
@@ -48,6 +48,7 @@ class ErrorsModel {
     if (_errors != null) {
       map['errors'] = _errors?.map((v) => v.toJson()).toList();
     }
+
     return map;
   }
 }
@@ -67,7 +68,7 @@ class Errors {
     _value = value;
   }
 
-  Errors.fromJson(dynamic json) {
+  Errors.fromJson(json) {
     _message = json['message'];
     _source = json['source'];
     if (json['value'] != null) _value = json['value'];
@@ -88,6 +89,7 @@ class Errors {
     map['message'] = _message;
     map['source'] = _source;
     map['value'] = _value;
+    
     return map;
   }
 }

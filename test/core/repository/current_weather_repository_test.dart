@@ -2,8 +2,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart'; 
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/current_location_params.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/current_weather_condition_response_model.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_params.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_info_model.dart';
 import 'package:weather_app/core/repository/current_weather_repository.dart';
 
 import 'current_weather_repository_test.mocks.dart';
@@ -22,17 +22,19 @@ Future<void> main() async{
                      latitude: 36.8252953,
                      key : "62429f7781c035b5d8f16a3fb43f6b85",
                     );
+  final WeatherInfoModel modelResponse =  WeatherInfoModel(main: Main(temp: 28.4, feelsLike: 289.43, tempMin: 289.4, tempMax: 289.43, pressure: 1015, humidity: 90, seaLevel: 1015, grndLevel: 831), weather:[Weather(id: 500, main: 'Rain', description: 'light rain', icon: '10n')]);
 
-   group("Current weather test", () {  
-    test('Test fetch current data', () async {
-      final weather = WeatherInfoModel();
+   group("#getCurrentLocationWeather", () {  
+    test('Verify fetch current weather info [getCurrentLocationWeather]', () async {
+     
       when(weatherRepo.getCurrentLocationWeather(params.toJson())).thenAnswer((_) async {
-        return weather;
+        return modelResponse;
       });
 
       final res = await weatherRepo.getCurrentLocationWeather(params.toJson());
       expect(res, isA<WeatherInfoModel>());
-      expect(res, weather);
+      expect(res, modelResponse);
+      verify(weatherRepo.getCurrentLocationWeather(params.toJson())).called(1);
 
     });
 

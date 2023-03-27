@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../utils/color.dart'; 
+import '../utils/palette.dart'; 
 
 enum ToastType { error, success, information, normal }
 
 class ToastUtils {
   static void showToast(String message,
-      {ToastType toastType = ToastType.normal}) {
+      {ToastType toastType = ToastType.normal,}) {
     Fluttertoast.showToast(
         msg: message,
         toastLength: Toast.LENGTH_SHORT,
@@ -15,7 +15,7 @@ class ToastUtils {
         timeInSecForIosWeb: 5,
         backgroundColor: _getToastBgColor(toastType),
         textColor: Palette.white,
-        fontSize: 14.0);
+        fontSize: 14.0,);
   }
 
   static Color? _getToastBgColor(ToastType toastType) {
