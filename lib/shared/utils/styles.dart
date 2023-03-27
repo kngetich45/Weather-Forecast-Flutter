@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'color.dart'; 
+import 'palette.dart'; 
 
 class Styles {
   static TextStyle loginTextStyle = TextStyle(

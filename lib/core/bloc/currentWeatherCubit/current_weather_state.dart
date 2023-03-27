@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'data/current_weather_condition_response_model.dart';
+import 'data/weather_info_model.dart';
 
 part 'current_weather_state.freezed.dart';
 

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:fimber/fimber.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:weather_app/core/data/prefs/shared_prefs_helper.dart';
+import 'package:weather_app/core/data/prefs/shared_helper.dart';
 
 part 'splash_screen_state.dart';
 

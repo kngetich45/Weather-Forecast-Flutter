@@ -7,12 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-import 'package:weather_app/shared/utils/bloc_observer.dart';
-import 'package:weather_app/shared/utils/color.dart';
+import 'package:weather_app/shared/utils/simple_bloc_observer.dart';
+import 'package:weather_app/shared/utils/palette.dart';
 import 'package:weather_app/shared/utils/routes.dart';
 import 'package:weather_app/shared/utils/themes.dart';  
 
-import 'core/bloc/language/langauge_cubit.dart';
+import 'core/bloc/language/language_cubit.dart';
 import 'core/di/di.dart';
 import 'features/splashScreen/splash_screen.dart';
 import 'package:weather_app/core/di/di.dart' as get_it;
@@ -27,7 +27,7 @@ Future<void> main() async {
   await EasyLocalization.ensureInitialized();
 
   unawaited(
-      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]));
+      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]),);
   get_it.initializeInitiator();
    Bloc.observer = SimpleBlocObserver(); 
   _initFimber();
@@ -36,13 +36,13 @@ Future<void> main() async {
       path: 'assets/translations',
       supportedLocales: const [Locale('en', 'US'), Locale('fr', 'FR')],
       fallbackLocale: const Locale('en', 'US'),
-      child: const MyApp(), // Wrap your app
+      child: const Main(), // Wrap your app
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Main extends StatelessWidget {
+  const Main({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +73,7 @@ class MyApp extends StatelessWidget {
                       .copyWith(secondary: Palette.primaryColor),
                 ),
                 locale: state is LanguageSupportLoaded
+                    // ignore: avoid-nested-conditional-expressions
                     ? (state.hasCustomLanguage
                         ? Locale(state.language, '')
                         : null)
@@ -90,8 +91,8 @@ class MyApp extends StatelessWidget {
                       const ResponsiveBreakpoint.autoScale(800, name: TABLET),
                       const ResponsiveBreakpoint.resize(1000, name: DESKTOP),
                     ],
-                    background: Container(color: const Color(0xFFF5F5F5))),
-                initialRoute: SplashPage.routeName,
+                    background: Container(color: const Color(0xFFF5F5F5)),),
+                initialRoute: SplashScreen.routeName,
               );
             },
           ),

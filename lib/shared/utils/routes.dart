@@ -4,11 +4,11 @@ import 'package:flutter/services.dart';
 import '../../features/homePage/home_screen.dart';
 import '../../features/splashScreen/splash_screen.dart'; 
 
-final GlobalKey<NavigatorState> navigationKey = GlobalKey<NavigatorState>();
+//final GlobalKey<NavigatorState> navigationKey = GlobalKey<NavigatorState>();
 
 final Map<String, WidgetBuilder> routes = {
-  SplashPage.routeName: (context) => myRoute(const SplashPage()),
-  MyHomePage.routeName: (context) => myRoute(const MyHomePage()),
+  SplashScreen.routeName: (context) => myRoute(const SplashScreen()),
+  HomeScreen.routeName: (context) => myRoute(const HomeScreen()),
 };
 
 //set icon colors to black and status bar colors to white for Android.

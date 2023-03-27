@@ -6,7 +6,7 @@
 import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/current_weather_condition_response_model.dart'
+import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_info_model.dart'
     as _i2;
 
 import 'current_weather_repository_test.dart' as _i3;

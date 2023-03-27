@@ -1,0 +1,37 @@
+name: Flutter Workflows
+on: [push, workflow_dispatch]
+jobs:
+  drive:
+    runs-on: macos-latest
+    steps:
+    -name: checkout
+     uses: actions/checkout@v1
+
+    -name: install flutter
+     uses: subosito/flutter-action@v1
+      with:
+        flutter-version: '3.7.8'
+        channel: 'stable'
+
+    -name: Install dependencies
+     run: flutter pub get
+
+    -name: Activate melos
+     run: dart pub global activate melos
+    
+    -name: clean with melos
+     run: melos clean
+     
+    -name: Boostrap with melos
+     run: melos bootstrap
+     
+    -name: upgrade packages
+     run: flutter pub upgrade
+     
+    -name: Get packages
+     run: flutter pub get
+     
+    -name: Activate junitreport
+     run: flutter pub global activate junitreport
+     
+ 

@@ -1,4 +1,4 @@
-class Convertion {
+class DayConvertion {
   static String convertWeekDayToDay(int day) {
     switch (day) {
       case 1:

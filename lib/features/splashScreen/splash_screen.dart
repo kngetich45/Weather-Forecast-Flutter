@@ -10,23 +10,24 @@ import 'package:weather_app/core/bloc/splash/splash_screen_cubit.dart';
 import 'package:weather_app/core/di/di.dart';
 import 'package:weather_app/features/homePage/home_screen.dart';
 import 'package:weather_app/shared/utils/assets.dart';
-import 'package:weather_app/shared/utils/color.dart';
+import 'package:weather_app/shared/utils/palette.dart';
 import 'package:weather_app/shared/utils/screen_util.dart';
 import 'package:weather_app/shared/utils/styles.dart';
-import 'package:weather_app/shared/widgets/toast.dart';
+import 'package:weather_app/shared/widgets/toast_type.dart';
 
-class SplashPage extends StatefulWidget {
+class SplashScreen extends StatefulWidget {
   static const routeName = 'SplashPage';
 
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashPageState extends State<SplashPage>
-    with AfterLayoutMixin<SplashPage> {
+class _SplashScreenState extends State<SplashScreen>
+    with AfterLayoutMixin<SplashScreen> {
   @override
+  // ignore: no-empty-block
   void afterFirstLayout(BuildContext context) {}
 
   @override
@@ -35,22 +36,23 @@ class _SplashPageState extends State<SplashPage>
     if (kDebugMode) {
       print("SPLASHHH");
     }
+    
     return BlocProvider(
       create: (context) => inject.get<SplashScreenCubit>()..checkStatus(),
       child: BlocListener<SplashScreenCubit, SplashScreenState>(
-        listener: (context, state) async {
+        listener: (context, state) async  {
           if (state is Status) {
             if (state.granted) {
               // Navigate to home
               Navigator.pushNamedAndRemoveUntil(
-                  context, MyHomePage.routeName, (route) => false);
+                  context, HomeScreen.routeName, (route) => false,);
             } else {
               await Permission.location.request();
 
               ToastUtils.showInfoToast(
-                  "Ensure access to location to enjoy our services.");
+                  "Ensure access to location to enjoy our services.",);
               Navigator.pushNamedAndRemoveUntil(
-                  context, SplashPage.routeName, (route) => false);
+                  context, SplashScreen.routeName, (route) => false,);
             }
           }
         },
@@ -77,9 +79,9 @@ class _SplashPageState extends State<SplashPage>
                 const SpinKitCircle(
                   color: Colors.white,
                   size: 40.0,
-                )
+                ),
               ],
-            ))),
+            ),),),
       ),
     );
   }
