@@ -30,6 +30,12 @@ scripts:
   test_results:
     run: melos run test_result:selective_test_result --no-select
     description: Run all flutter test --machine | tojunitin this project.
-  
+
+  metrics:
+    run: |
+      melos exec -c 1 --ignore="*example*" -- \
+        flutter pub run dart_code_metrics:metrics lib
+    description: |
+      Run `dart_code_metrics` in all packages.
 
   gen_coverage: melos exec -- "\$MELOS_ROOT_PATH/combine_coverage.sh"
