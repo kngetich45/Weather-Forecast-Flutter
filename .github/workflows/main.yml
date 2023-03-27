@@ -31,6 +31,12 @@ jobs:
       - name: Get packages
         run: flutter pub get
       
+      - name: Run test with melos
+        run: melos run test
+
+      - name: Dart code metrics test
+        run: flutter pub run dart_code_metrics:metrics lib
+      
       - name: Activate junitreport
         run: flutter pub global activate junitreport
      

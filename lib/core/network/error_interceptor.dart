@@ -1,12 +1,10 @@
-// ignore_for_file: deprecated_member_use, unused_element
-
-import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fimber/fimber.dart';
+ 
 
-import 'package:weather_app/core/data/errors_model.dart';
+import '../data/errors_model.dart';
 
 class ErrorInterceptor extends Interceptor {
   final Dio dio;
@@ -26,9 +24,6 @@ class ErrorInterceptor extends Interceptor {
         err.error =
             'An error occurred while attempting to connect to our servers';
         break;
-      case DioErrorType.other:
-        err.error = err.error is SocketException ? 'Server is not reachable. Please verify your internet connection and try again' : 'Looks like something went wrong while processing your request';
-        break;
       case DioErrorType.response:
         if (err.response?.data != null) {
           if (err.response?.data is String) {
@@ -39,7 +34,13 @@ class ErrorInterceptor extends Interceptor {
               // errors object is available
               ErrorsModel errorObj = ErrorsModel.fromJson(err.response?.data);
 
-              err.error = errorObj.errors != null ? '${errorObj.errors!.first.message}'.tr() : err.response?.data['message'];
+              // ignore: prefer-conditional-expressions
+              if (errorObj.errors != null) {
+                err.error = '${errorObj.errors!.first.message}'.tr();
+              } else {
+                //top level message key
+                err.error = err.response?.data['message'];
+              }
             } catch (e) {
               Fimber.e('Errorrrr : $e');
             }
@@ -70,21 +71,8 @@ class ErrorInterceptor extends Interceptor {
         err.error =
             'Looks like something went wrong while processing your request! Kindly try again';
     }
-    
+
     return super.onError(err, handler);
   }
 
-  void _toggleLocks(bool shouldLock) {
-    if (shouldLock) {
-      dio.lock();
-      dio.interceptors.errorLock.lock();
-      dio.interceptors.requestLock.lock();
-      dio.interceptors.responseLock.lock();
-    } else {
-      dio.unlock();
-      dio.interceptors.errorLock.unlock();
-      dio.interceptors.requestLock.unlock();
-      dio.interceptors.responseLock.unlock();
-    }
-  }
 }
