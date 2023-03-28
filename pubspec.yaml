@@ -56,6 +56,7 @@ dependencies:
   freezed_annotation:
 
   date_time_format: ^2.0.1
+  anim_search_bar: ^2.0.3
 
 dev_dependencies:
   flutter_test:

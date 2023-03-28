@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';  
 
+import '../shared/services/weather_info_asset_path.dart';
 import '../shared/utils/assets.dart';
 import '../shared/utils/palette.dart';
 
@@ -36,7 +37,7 @@ class CustomListTile extends StatelessWidget {
                 )
               : Container(
                   child: SvgPicture.asset(
-                    Assets.sunny,
+                    WeatherInfoAssetPath.fetchAssetFromTodayWeather(assetPath),
                     color: Colors.white,
                     height: 46.0.h,
                     width: 46.0,

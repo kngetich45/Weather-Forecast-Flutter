@@ -1,5 +1,5 @@
 import 'package:fimber/fimber.dart';
-import 'package:weather_app/core/bloc/weatherForecastCubit/data/weather_forecast_model.dart';
+import 'package:weather_app/core/data/model/weather_forecast_model.dart';
 
 import 'package:weather_app/core/network/api_provider.dart';
 import 'package:weather_app/core/network/endpoints.dart';

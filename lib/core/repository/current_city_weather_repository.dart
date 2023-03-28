@@ -5,20 +5,20 @@ import 'package:weather_app/core/network/endpoints.dart';
 
 import '../data/model/weather_info_model.dart';
 
-abstract class CurrentWeatherRepository{
-    Future<WeatherInfoModel> getCurrentLocationWeather(Map<String, dynamic> params);
+abstract class CurrentCityWeatherRepository{
+    Future<WeatherInfoModel> getCurrentCityWeather(Map<String, dynamic> params);
 
 }
 
-class CurrentWeatherRepositoryIml implements CurrentWeatherRepository {
+class CurrentCityWeatherRepositoryIml implements CurrentCityWeatherRepository {
   final ApiProvider apiProvider;
 
-  CurrentWeatherRepositoryIml(
+  CurrentCityWeatherRepositoryIml(
     this.apiProvider,
   );
 
   @override
-  Future<WeatherInfoModel> getCurrentLocationWeather(
+  Future<WeatherInfoModel> getCurrentCityWeather(
       Map<String, dynamic> params,) async {
     try { 
        WeatherInfoModel _model ;
