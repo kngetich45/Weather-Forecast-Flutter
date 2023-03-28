@@ -4,9 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_cubit.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_state.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_params.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_info_model.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_state.dart'; 
+import 'package:weather_app/core/data/model/weather_info_model.dart';
+import 'package:weather_app/core/data/model/weather_params.dart'; 
 import 'package:weather_app/core/repository/current_weather_repository.dart';
 
 import 'current_weather_cubit_test.mocks.dart';

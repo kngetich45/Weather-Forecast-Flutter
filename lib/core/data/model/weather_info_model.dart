@@ -1,3 +1,5 @@
+import '../../../shared/utils/temperature_convert.dart';
+
 class WeatherInfoModel {
   WeatherInfoModel({
     this.weather,
@@ -78,10 +80,10 @@ class Main {
   int? grndLevel;
 
   factory Main.fromJson(Map<String, dynamic> json) => Main(
-        temp: json["temp"].toDouble(),
-        feelsLike: json["feels_like"].toDouble(),
-        tempMin: json["temp_min"].toDouble(),
-        tempMax: json["temp_max"].toDouble(),
+        temp: kelvinToCelsius(json["temp"].toDouble()),
+        feelsLike: kelvinToCelsius(json["feels_like"].toDouble()),
+        tempMin: kelvinToCelsius(json["temp_min"].toDouble()),
+        tempMax: kelvinToCelsius(json["temp_max"].toDouble()),
         pressure: json["pressure"],
         humidity: json["humidity"],
         seaLevel: json["sea_level"],

@@ -2,9 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_state.dart'; 
 
-import '../../repository/current_weather_repository.dart'; 
-import 'data/weather_params.dart';
-import 'data/weather_info_model.dart';
+import '../../data/model/weather_info_model.dart';
+import '../../data/model/weather_params.dart';
+import '../../repository/current_weather_repository.dart';  
 
 class CurrentWeatherCubit extends Cubit<CurrentWeatherState> {
   final CurrentWeatherRepository currentWeatherRepository;

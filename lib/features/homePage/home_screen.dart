@@ -5,14 +5,14 @@ import 'package:geolocator/geolocator.dart';
 import 'package:weather_app/core/bloc/curentLocationCubit/current_location_cubit.dart';
 import 'package:weather_app/core/bloc/curentLocationCubit/current_location_state.dart';
 import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_cubit.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_state.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_params.dart';
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_info_model.dart';
+import 'package:weather_app/core/bloc/currentWeatherCubit/current_weather_state.dart'; 
 import 'package:weather_app/core/di/di.dart';
 import 'package:weather_app/features/forecast/forecast_list.dart';
 import 'package:weather_app/features/weather/weather_info.dart';
 import 'package:weather_app/shared/widgets/toast_type.dart';
 
+import '../../core/data/model/weather_info_model.dart';
+import '../../core/data/model/weather_params.dart';
 import '../../shared/utils/assets.dart';  
 
 class HomeScreen extends StatefulWidget {

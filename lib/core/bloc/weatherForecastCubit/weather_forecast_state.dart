@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:weather_app/core/bloc/weatherForecastCubit/data/weather_forecast_model.dart';
+import 'package:weather_app/core/data/model/weather_forecast_model.dart';
 
 part 'weather_forcast_state.freezed.dart';
 

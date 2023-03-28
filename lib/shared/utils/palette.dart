@@ -14,4 +14,5 @@ class Palette {
   static const Color titleColor = Color(0xFF524D4D);
   static const Color tabTitle = Color(0xFF606266);
   static const Color white = Color(0xFFFFFFFF);
+    static const Color red = Color.fromARGB(255, 233, 7, 7);
 }

@@ -2,11 +2,11 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart'; 
-import 'package:weather_app/core/bloc/currentWeatherCubit/data/weather_params.dart'; 
-import 'package:weather_app/core/bloc/weatherForecastCubit/data/weather_forecast_model.dart'; 
+import 'package:mockito/mockito.dart';   
+import 'package:weather_app/core/data/model/weather_forecast_model.dart'; 
 import 'package:weather_app/core/bloc/weatherForecastCubit/weather_forecast_state.dart';
 import 'package:weather_app/core/bloc/weatherForecastCubit/weather_forecast_cubit.dart';
+import 'package:weather_app/core/data/model/weather_params.dart';
 import 'package:weather_app/core/repository/weather_repository.dart';
 
 import 'weather_forecast_cubit_test.mocks.dart'; 
